@@ -44,35 +44,78 @@ var game = {
     //create function that will loop through all the letters in the computers choice if the users guess is correct
     fillCorrectBlanks: function (letter) {
         for (var i = 0; i < computerChoice.length; i++) {
-            if (userGuess === computerChoice.charAt(i)) {
+            if (letter === computerChoice.charAt(i)) {
                 hiddenLetter = userGuess + " ";
                 currentWordText.innerHTML = this.hiddenLetter
             }
         }
     },
 
-    // function to split the random word into an array
-
     // function for if the users guess is incorrect
     incorrectGuesses: function (letter) {
         for (var i = 0; i < this.computerChoice.length; i++) {
-            if (userGuess !== this.computerChoice[i]) {
-                this.lettersGuessed.append(userGuess)
-                turns--;
+            if (letter !== this.computerChoice.charAt(i)) {
+                this.lettersGuessed.append(letter)
+                this.turns--;
             }
         }
     },
 
+    // function for if the guess is correct
+    correctGuesses: function (letter) {
+        for (var i = 0; i < this.hiddenLetter.length; i++) {
+            if (letter === this.hiddenLetter.charAt(i)) {
+                this.lettersGuessed.append(userGuess)
+                currentWordText.innerHTML = this.hiddenLetter;
+            }
+        }
+    },
+
+    // combine those two functions into one
+
+    checkGuess: function (letter) {
+        this.correctGuesses(letter) + this.incorrectGuesses(letter);
+    },
+    //win game funtion
+    winGame: function () {
+        for (var i = 0; i < this.hiddenLetter.length; i++) {
+            if (letter.charAt(i) === this.hiddenLetter.charAt(i)) {
+                this.wins++;
+            }
+        }
+    },
+    //lose game fucntion
+    loseGame: function () {
+        for (var i = 0; i < this.hiddenLetter.length; i++) {
+            if (letter.charAt(i) === this.hiddenLetter.charAt(i)) {
+                this.wins++;
+            }
+        }
+    },
+    // combine them into a check win or lose game function
+    checkWinOrLose: function () {
+        this.winGame + this.loseGame;       
+    },
+
     // Need a reset function so that the strings dont keep creating blanks
-    Reset: function() {
+    Reset: function () {
         this.turns = 9;
         this.lettersGuessed = "";
         this.computerChoice = "";
         this.hiddenLetter = "",
-        this.startPoint(createBlanks());
+            this.startPoint(createBlanks());
     },
 
     // now i need my function to check the user input and call all the other functions for the game.
+    playGame: function (letter) {
+        // first call the check guesses
+        this.checkGuess(letter);
+        this.checkWinOrLose(letter);
+        this.Reset;
+
+
+
+    }
 
 
 
@@ -92,9 +135,8 @@ game.createBlanks(game.startPoint());
 // Create the function for the events and what happens on the events
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
-    // need to check userGuesses towards computerChoice
-
-    // need to reset the game if win or loss
+    //playgame
+    game.playGame(userGuess)
 }
 
     // Determine which key is pressed and check it to the computer's choice 
