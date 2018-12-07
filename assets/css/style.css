@@ -1,3 +1,34 @@
+/* body styling */
+body {
+    background: url("../images/kingdom-hearts.jpg");
+}
+/* container styling */
+.container {
+    border: 1px solid black;
+    background: url("../images/kingdom-hearts2.jpg");
+    background-size: cover;
+    color: white;
+    margin:  141px auto;
+
+}
+/* typeography */
 h1 {
-    color: #4aaaa5
+    color: rgb(0, 0, 0)!important;
+    text-shadow: 2px 2px #1ff5e6;
+}
+h2 {
+    color: rgb(50, 35, 32)!important;
+    text-shadow: 2px 2px #a5cb1e;
+}
+h3 {
+    color: rgba(122, 8, 0, 0.795)!important;
+    text-shadow: 2px 2px #ff9800b5;
+}
+p {
+    font-size: 25px;
+    color: #d1d2e4!important;
+    text-shadow: 2px 2px #ff0000b5;
+}
+#current-word {
+    font-size: 3em;
 }
