@@ -1,5 +1,26 @@
 // initialize variables for wins, losses, turns, and an array of the alphabet and a wordbank for the computer choice
-var wordBank = ["roxas"];
+var wordBank = ["roxas",
+"kingdom",
+"island",
+"sora",
+"namine",
+"key",
+"destiny",
+"oblivion",
+"axel",
+"twilight",
+"eater",
+"ansem",
+"dream",
+"donald",
+"maleficent",
+"queen minnie",
+"terra",
+"keyblade",
+"xion",
+"riku",
+"kairi",
+"goofy"];
 
 // Computer selected solution will be held here.
 var chosenWord = "";
