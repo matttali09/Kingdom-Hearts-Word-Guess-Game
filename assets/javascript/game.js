@@ -126,12 +126,13 @@ function checkLetters(letter) {
 
   // If the letter is incorrect
   else {
+    if (/^[a-zA-Z()]+$/.test(letter)) {
+      // Then we add the letter to the list of wrong letters.
+      wrongGuesses.push(letter);
 
-    // Then we add the letter to the list of wrong letters.
-    wrongGuesses.push(letter);
-
-    // We also subtract one of the guesses.
-    numGuesses--;
+      // We also subtract one of the guesses.
+      numGuesses--;
+    }
 
   }
 
@@ -149,7 +150,7 @@ function roundComplete() {
   // ============
 
   // Update the HTML to reflect the new number of guesses.
-  document.getElementById("guessesleft-text").innerHTML = "Guesses Left:" + numGuesses;
+  document.getElementById("guessesleft-text").innerHTML = "Guesses Left: " + numGuesses;
 
   // This will print the array of guesses and blanks onto the page.
   document.getElementById("current-word").innerHTML = blanksAndSuccesses.join(" ");
