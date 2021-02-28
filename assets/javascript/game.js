@@ -1,26 +1,5 @@
 // initialize variables for wins, losses, turns, and an array of the alphabet and a wordbank for the computer choice
-var wordBank = ["roxas",
-  "kingdom",
-  "island",
-  "sora",
-  "namine",
-  "key",
-  "destiny",
-  "oblivion",
-  "axel",
-  "twilight",
-  "eater",
-  "ansem",
-  "dream",
-"donald",
-"maleficent",
-"queen minnie",
-"terra",
-"keyblade",
-"xion",
-"riku",
-"kairi",
-"goofy"];
+var wordBank = ["roxas"];
 
 // Computer selected solution will be held here.
 var chosenWord = "";
@@ -165,7 +144,7 @@ function roundComplete() {
     winCounter++;
 
     // Give the user an alert
-    alert("You win!");
+    alert("You win! The word was " + chosenWord);
 
     // Update the win counter in the HTML
     document.getElementById("wins-text").innerHTML = "Wins: " + winCounter;
@@ -181,7 +160,7 @@ function roundComplete() {
     lossCounter++;
 
     // Give the user an alert
-    alert("You lose");
+    alert("You lose! The word was " + chosenWord);
 
     // Update the loss counter in the HTML
     document.getElementById("losses-text").innerHTML = "Losses: " + lossCounter;
